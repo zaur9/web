@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>How Old Am I?? — official age machine</title>
+    <meta
+      name="description"
+      content="Forgot your age? Enter your birth date, pay 1 ETH, get the number. Ethereum payment on mainnet."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-stain" aria-hidden="true"></div>
+
+    <header class="header">
+      <div class="logo-wrap">
+        <p class="logo-old">age.com</p>
+        <h1 class="logo">HOW OLD AM I<span class="blink">??</span></h1>
+        <p class="logo-sub">the calculator for people who cannot subtract years</p>
+      </div>
+      <nav class="nav">
+        <a href="#machine">the machine</a>
+        <a href="#hole">missing part</a>
+        <a href="#faq">faq (half)</a>
+        <span class="nav-broken">contac</span>
+      </nav>
+    </header>
+
+    <marquee class="ticker" truespeed scrolldelay="18"
+      >SITE NOT DONE &nbsp;•&nbsp; CLICK THE HOLE TO DONATE AND HELP US FINISH &nbsp;•&nbsp; AGE RESULTS AFTER ETHEREUM PAYMENT &nbsp;•&nbsp; WAS 500 ETH NOW 1 ETH &nbsp;•&nbsp;</marquee
+    >
+
+    <main>
+      <section class="hero">
+        <p class="sticky-note">designer went to lunch in 2019 and never came back</p>
+        <h2 class="hero-title">Forgot how old you are?</h2>
+        <p class="hero-copy">
+          Some people can do this in their head. This website is for everyone else.
+          Type the date you were born. Pay <b>1 ETH</b>. We tell you the number.
+        </p>
+        <p class="hero-copy crooked">
+          The payment is on Ethereum mainnet. The age is calculated after the transaction confirms.
+        </p>
+      </section>
+
+      <section id="machine" class="machine">
+        <div class="machine-frame">
+          <p class="badge">BETA?? maybe</p>
+          <h3>Chronology Engine v0.3</h3>
+          <p class="tiny-dev">// TODO align this box with the rest of the layout</p>
+
+          <form id="age-form" class="age-form">
+            <table class="form-table">
+              <tr>
+                <td class="label-cell">your birth date&nbsp;&nbsp;</td>
+                <td>
+                  <input id="birthdate" name="birthdate" type="date" required />
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="hint">must be a real day that already happened</td>
+              </tr>
+            </table>
+            <button class="pay-btn" type="submit">
+              calculate my age
+              <small>
+                <s>500 ETH</s>
+                <b>1 ETH</b>
+              </small>
+            </button>
+          </form>
+
+          <p class="fine">
+            After MetaMask (or any injected Ethereum wallet) confirms
+            <strong>1 ETH</strong> on Ethereum mainnet, the result appears below.
+          </p>
+        </div>
+
+        <aside class="scribble">
+          <p>wait why is this column here</p>
+          <p>i think we needed padding</p>
+          <p class="scribble-arrow">← the form is the important part</p>
+        </aside>
+      </section>
+
+      <section id="result-section" class="result-section" hidden>
+        <h3>Result (you paid for this)</h3>
+        <p id="result-text" class="result-text"></p>
+        <p id="result-extra" class="result-extra"></p>
+      </section>
+
+      <section id="hole" class="hole-section">
+        <button class="hole" type="button" data-pay="donate" data-reason="content-hole">
+          <span class="hole-ring"></span>
+          <span class="hole-copy">
+            There is a hole in the website here.
+            <b>Help finish the site by donating Ethereum (0.5 ETH minimum).</b>
+          </span>
+        </button>
+        <p class="hole-caption">click the hole. it is supposed to be a picture of a cake or something</p>
+      </section>
+
+      <section id="faq" class="faq">
+        <h3>questions we started answering</h3>
+        <dl>
+          <dt>How does the age result work?</dt>
+          <dd>Enter a birth date, confirm 1 ETH in your wallet, and the result appears after the transaction confirms.</dd>
+          <dt>Why 1 ETH to add years?</dt>
+          <dd>The listed price was 500 ETH. The current checkout price is 1 ETH.</dd>
+          <dt>What if I already know my age?</dt>
+          <dd>Then you may not need the machine. The rest of the page is still unfinished.</dd>
+          <dt>Where is the rest of the FAQ?</dt>
+          <dd class="unfinished-dd">This answer is not written yet.</dd>
+        </dl>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 how old am i llc (not a real llc we did not file the pap</p>
+    </footer>
+
+    <div id="pay-modal" class="modal" hidden>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="pay-title">
+        <button class="modal-x" type="button" id="pay-close" aria-label="Close">x</button>
+        <p class="modal-kicker" id="pay-kicker">checkout</p>
+        <h3 id="pay-title">Pay to continue</h3>
+        <div id="age-price">
+          <p class="price-row">
+            <span class="old-price">500 ETH</span>
+            <span class="new-price">1 ETH</span>
+          </p>
+          <p class="discount-sticker">SUPER DISCOUNT</p>
+        </div>
+        <label id="donate-amount-wrap" class="donate-amount-wrap" hidden>
+          Amount in ETH
+          <input id="donate-amount" type="number" min="0.5" step="0.01" value="0.5" />
+          <small>Minimum 0.5 ETH. You can send more.</small>
+        </label>
+        <p id="pay-desc" class="pay-desc"></p>
+        <p id="pay-error" class="pay-error" hidden></p>
+        <p id="pay-status" class="pay-status" hidden></p>
+        <button class="pay-btn modal-pay" id="pay-confirm" type="button">
+          pay 1 ETH now
+        </button>
+        <p class="wallet-note">Needs an Ethereum wallet in the browser. Mainnet. Real money.</p>
+      </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
